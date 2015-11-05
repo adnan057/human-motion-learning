@@ -31,7 +31,6 @@ for action in action_folders:
 
 				img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-
 				frames.append(img)
 				labels.append(int(i))				
 
