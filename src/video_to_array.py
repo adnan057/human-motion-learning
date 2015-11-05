@@ -8,7 +8,7 @@ import os
 import pickle
 #import cPickle as pickle
 
-filepath = 'data/'
+filepath = 'data/videos/'
 
 videos = []
 for f in os.listdir(filepath):
@@ -24,18 +24,17 @@ for f in os.listdir(filepath):
 					break
 
 				gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-				cv2.imshow('action',gray)
+				#cv2.imshow('action',gray)
 				frames.append(gray)
 				cv2.waitKey(10)
 
 			frames = np.array(frames, dtype = np.float64)
+			#print(frames.shape)
 			videos.append(frames)
 			cap.release()
 		
 videos = np.array(videos)
-
 #print(videos)
-#print(len(videos))
 
 pickle.dump(videos,open('data/videos_to_pickle.p','wb'), -1)
 
